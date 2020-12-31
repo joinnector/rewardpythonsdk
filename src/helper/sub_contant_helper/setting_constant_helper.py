@@ -26,7 +26,7 @@ API_MAP = {
     },
     "lead": {
         "create": {"endpoint": "/leads", "prefix": "/api/v2/merchant", "has_authorization": True, "has_signature": True},
-        "get": {"endpoint": "/leads/{id}", "prefix": "/api/v2/merchant", "has_authorization": True, "has_urlencoded": True},
+        "get": {"endpoint": "/leads/{id}", "prefix": "/api/v2/merchant", "has_authorization": True},
         "save": {"endpoint": "/leads/{id}", "prefix": "/api/v2/merchant", "has_authorization": True, "has_signature": True},
         "list": {"endpoint": "/leads", "prefix": "/api/v2/merchant", "has_authorization": True}
     },

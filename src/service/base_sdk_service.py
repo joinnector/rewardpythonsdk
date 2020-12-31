@@ -48,10 +48,6 @@ class BaseSDKService(object):
             headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
                                                                          {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
 
-        if apimapopts.get(action).get("has_urlencoded") is True:
-            headers.update(
-                {"content-type": "application/x-www-form-urlencoded"})
-
         return request_wrapper.request_wrapper.get_wrapper().process_axios_get(
             url=url, headers=headers, params=params)
 
@@ -69,9 +65,8 @@ class BaseSDKService(object):
             headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
                                                                          {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
 
-        if apimapopts.get(action).get("has_urlencoded") is True:
-            headers.update(
-                {"content-type": "application/x-www-form-urlencoded"})
+        headers.update(
+            {"content-type": "application/x-www-form-urlencoded"})
 
         return request_wrapper.request_wrapper.get_wrapper().process_axios_get(
             url=url, headers=headers)
