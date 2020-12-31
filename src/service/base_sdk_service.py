@@ -1,4 +1,5 @@
 import base64
+import uuid
 
 import helper.constant_helper as constant_helper
 import helper.collection_helper as collection_helper
@@ -53,6 +54,27 @@ class BaseSDKService(object):
 
         return request_wrapper.request_wrapper.get_wrapper().process_axios_get(
             url=url, headers=headers, params=params)
+
+    def get_by(self, by_key, by_value, action="get"):
+        apimapopts = constant_helper.ConstantHelper.get_setting_constant().API_MAP.get(self.name)
+
+        url = collection_helper.CollectioHelper.process_key_join(value=[constant_helper.ConstantHelper.get_setting_constant(
+        ).API_BASE_URL, apimapopts.get(action).prefix, apimapopts.get(action).endpoint], separator="")
+        headers = constant_helper.ConstantHelper.get_setting_constant().API_BASE_HEADER
+
+        url = ("%(url)s/%(id)s?%(key)s=%(value)s" %
+               {"url": url, id: str(uuid.uuid4()), "key": by_key, "value": by_value})
+
+        if apimapopts.get(action).get("has_authorization") is True:
+            headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
+                                                                         {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
+
+        if apimapopts.get(action).get("has_urlencoded") is True:
+            headers.update(
+                {"content-type": "application/x-www-form-urlencoded"})
+
+        return request_wrapper.request_wrapper.get_wrapper().process_axios_get(
+            url=url, headers=headers)
 
     def save(self, id, payload, action="save"):
         apimapopts = constant_helper.ConstantHelper.get_setting_constant().API_MAP.get(self.name)
