@@ -57,9 +57,10 @@ class BaseSDKService(object):
         url = collection_helper.CollectioHelper.process_key_join(value=[constant_helper.ConstantHelper.get_setting_constant(
         ).API_BASE_URL, apimapopts.get(action).prefix, apimapopts.get(action).endpoint], separator="")
         headers = constant_helper.ConstantHelper.get_setting_constant().API_BASE_HEADER
+        params = {"id": str(uuid.uuid4())}
 
-        url = ("%(url)s/%(id)s?%(key)s=%(value)s" %
-               {"url": url, id: str(uuid.uuid4()), "key": by_key, "value": by_value})
+        url = ("%(url)s?%(key)s=%(value)s" %
+               {"url": url, "key": by_key, "value": by_value})
 
         if apimapopts.get(action).get("has_authorization") is True:
             headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
@@ -69,7 +70,7 @@ class BaseSDKService(object):
             {"content-type": "application/x-www-form-urlencoded"})
 
         return request_wrapper.request_wrapper.get_wrapper().process_axios_get(
-            url=url, headers=headers)
+            url=url, headers=headers, params=params)
 
     def save(self, id, payload, action="save"):
         apimapopts = constant_helper.ConstantHelper.get_setting_constant().API_MAP.get(self.name)
