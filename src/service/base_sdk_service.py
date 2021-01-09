@@ -51,7 +51,7 @@ class BaseSDKService(object):
         return request_wrapper.request_wrapper.get_wrapper().process_axios_get(
             url=url, headers=headers, params=params)
 
-    def get_by(self, by_key, by_value, action="get"):
+    def get_by(self, by_key, by_value, swap_id=None, action="get"):
         apimapopts = constant_helper.ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
         url = collection_helper.CollectioHelper.process_key_join(value=[constant_helper.ConstantHelper.get_setting_constant(
@@ -61,6 +61,9 @@ class BaseSDKService(object):
 
         url = ("%(url)s?%(key)s=%(value)s" %
                {"url": url, "key": by_key, "value": by_value})
+
+        url = (url + ("&swap_id=%(swap_id)s" %
+                      {swap_id: swap_id})) if swap_id is not None else url
 
         if apimapopts.get(action).get("has_authorization") is True:
             headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
