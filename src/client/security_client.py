@@ -1,6 +1,6 @@
 import hmac
 import hashlib
-import binascii
+import urllib.parse
 
 class SecurityClient(object):
 	'''
@@ -8,9 +8,4 @@ class SecurityClient(object):
 	'''
 
 	def process_hmac_signature(self, value, password):
-		byte_key = binascii.unhexlify(password)
-		encoded_message = value.encode()
-		return hmac.new(byte_key, encoded_message, hashlib.sha256).hexdigest()
-
-	def process_sha256_hash(self, value):
-		return hashlib.sha256(value).hexdigest()
+		return hmac.new(password.encode('utf8'), ''.join(sorted(urllib.parse.urlencode(value))).encode('utf8'), hashlib.sha256).hexdigest()

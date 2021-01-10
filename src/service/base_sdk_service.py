@@ -25,52 +25,55 @@ class BaseSDKService(object):
         params = {}
         attributes = payload
 
-        headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
-                                                                     {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
+        token = "%(name)s:%(pass)s" % {
+            "name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret}
+        headers.update({"authorization": "Basic " +
+                        base64.b64encode(token.encode("utf-8")).decode('ascii')})
 
         headers.update(
             {"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
 
         if apimapopts.get(action).get("has_signature") is True:
             headers.update({"x-signature": security_wrapper.sucurity_wrapper.get_wrapper().process_hmac_signature(
-                value=collection_helper.CollectioHelper.process_serialize_data({"value": attributes}), password=request_wrapper.request_wrapper.get_wrapper().secret)})
+                value=collection_helper.CollectioHelper.process_serialize_data(attributes), password=request_wrapper.request_wrapper.get_wrapper().secret)})
 
         return request_wrapper.request_wrapper.get_wrapper().process_axios_post(
             url=url, headers=headers, params=params, data=attributes)
 
-    def get(self, id=None, action="get"):
+    def get(self, id, action="get"):
         apimapopts = constant_helper.ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
         url = collection_helper.CollectioHelper.process_key_join(value=[constant_helper.ConstantHelper.get_setting_constant(
-        ).API_BASE_URL, apimapopts.get(action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="")
+        ).API_BASE_URL, apimapopts.get(action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", id)
         headers = constant_helper.ConstantHelper.get_setting_constant().API_BASE_HEADER
-        params = {"id": id} if id is not None else dict()
 
-        headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
-                                                                     {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
+        token = "%(name)s:%(pass)s" % {
+            "name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret}
+        headers.update({"authorization": "Basic " +
+                        base64.b64encode(token.encode("utf-8")).decode('ascii')})
 
         headers.update(
             {"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
 
         return request_wrapper.request_wrapper.get_wrapper().process_axios_get(
-            url=url, headers=headers, params=params)
+            url=url, headers=headers, params={})
 
     def get_by(self, by_key, by_value, swap_id=None, action="get"):
         apimapopts = constant_helper.ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
         url = collection_helper.CollectioHelper.process_key_join(value=[constant_helper.ConstantHelper.get_setting_constant(
-        ).API_BASE_URL, apimapopts.get(action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="")
+        ).API_BASE_URL, apimapopts.get(action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", str(uuid.uuid4()))
         headers = constant_helper.ConstantHelper.get_setting_constant().API_BASE_HEADER
-        params = {"id": str(uuid.uuid4())}
+        params = {}
 
-        url = ("%(url)s?%(key)s=%(value)s" %
-               {"url": url, "key": by_key, "value": by_value})
+        params.update({by_key: by_value})
+        if swap_id is not None:
+            params.update({ "swap_id": swap_id })
 
-        url = (url + ("&swap_id=%(swap_id)s" %
-                      {swap_id: swap_id})) if swap_id is not None else url
-
-        headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
-                                                                     {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
+        token = "%(name)s:%(pass)s" % {
+            "name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret}
+        headers.update({"authorization": "Basic " +
+                        base64.b64encode(token.encode("utf-8")).decode('ascii')})
 
         headers.update(
             {"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
@@ -85,42 +88,45 @@ class BaseSDKService(object):
         apimapopts = constant_helper.ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
         url = collection_helper.CollectioHelper.process_key_join(value=[constant_helper.ConstantHelper.get_setting_constant(
-        ).API_BASE_URL, apimapopts.get(action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="")
+        ).API_BASE_URL, apimapopts.get(action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", id)
         headers = constant_helper.ConstantHelper.get_setting_constant().API_BASE_HEADER
-        params = {"id": id}
         attributes = payload
 
-        headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
-                                                                     {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
+        token = "%(name)s:%(pass)s" % {
+            "name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret}
+        headers.update({"authorization": "Basic " +
+                        base64.b64encode(token.encode("utf-8")).decode('ascii')})
 
         headers.update(
             {"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
 
         if apimapopts.get(action).get("has_signature") is True:
             headers.update({"x-signature": security_wrapper.sucurity_wrapper.get_wrapper().process_hmac_signature(
-                value=collection_helper.CollectioHelper.process_serialize_data({"value": attributes}), password=request_wrapper.request_wrapper.get_wrapper().secret)})
+                value=collection_helper.CollectioHelper.process_serialize_data(attributes), password=request_wrapper.request_wrapper.get_wrapper().secret)})
 
         return request_wrapper.request_wrapper.get_wrapper().process_axios_put(
-            url=url, headers=headers, params=params, data=attributes)
+            url=url, headers=headers, params={}, data=attributes)
 
-    def delete(self, id=None, action="get"):
+    def delete(self, id, action="get"):
         apimapopts = constant_helper.ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
         url = collection_helper.CollectioHelper.process_key_join(value=[constant_helper.ConstantHelper.get_setting_constant(
-        ).API_BASE_URL, apimapopts.get(action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="")
+        ).API_BASE_URL, apimapopts.get(action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", id)
         headers = constant_helper.ConstantHelper.get_setting_constant().API_BASE_HEADER
-        params = {"id": id} if id is not None else dict()
-
-        headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
-                                                                     {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
+       
+        token = "%(name)s:%(pass)s" % {
+            "name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret}
+        headers.update({"authorization": "Basic " +
+                        base64.b64encode(token.encode("utf-8")).decode('ascii')})
 
         headers.update(
             {"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
 
         return request_wrapper.request_wrapper.get_wrapper().process_axios_delete(
-            url=url, headers=headers, params=params)
+            url=url, headers=headers, params={})
 
-    def fetch(self, filter, paging={"page": 1, "limit": 20}, action="fetch"):
+    def fetch(self, filter={}, paging={"page": 1, "limit": 20}, action="fetch"):
+        
         apimapopts = constant_helper.ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
         url = collection_helper.CollectioHelper.process_key_join(value=[constant_helper.ConstantHelper.get_setting_constant(
@@ -128,8 +134,10 @@ class BaseSDKService(object):
         headers = constant_helper.ConstantHelper.get_setting_constant().API_BASE_HEADER
         params = {**filter, **paging}
 
-        headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
-                                                                     {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
+        token = "%(name)s:%(pass)s" % {
+            "name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret}
+        headers.update({"authorization": "Basic " +
+                        base64.b64encode(token.encode("utf-8")).decode('ascii')})
 
         headers.update(
             {"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
