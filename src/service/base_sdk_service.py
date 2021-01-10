@@ -25,11 +25,11 @@ class BaseSDKService(object):
         params = {}
         attributes = payload
 
-        # if apimapopts.get(action).get("has_authorization") is True:
-        #     headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
-        #                                                                  {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
+        headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
+                                                                     {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
 
-        headers.update({"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
+        headers.update(
+            {"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
 
         if apimapopts.get(action).get("has_signature") is True:
             headers.update({"x-signature": security_wrapper.sucurity_wrapper.get_wrapper().process_hmac_signature(
@@ -46,11 +46,11 @@ class BaseSDKService(object):
         headers = constant_helper.ConstantHelper.get_setting_constant().API_BASE_HEADER
         params = {"id": id} if id is not None else dict()
 
-        # if apimapopts.get(action).get("has_authorization") is True:
-        #     headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
-        #                                                                  {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
+        headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
+                                                                     {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
 
-        headers.update({"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
+        headers.update(
+            {"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
 
         return request_wrapper.request_wrapper.get_wrapper().process_axios_get(
             url=url, headers=headers, params=params)
@@ -69,11 +69,11 @@ class BaseSDKService(object):
         url = (url + ("&swap_id=%(swap_id)s" %
                       {swap_id: swap_id})) if swap_id is not None else url
 
-        # if apimapopts.get(action).get("has_authorization") is True:
-        #     headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
-        #                                                                  {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
+        headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
+                                                                     {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
 
-        headers.update({"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
+        headers.update(
+            {"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
 
         headers.update(
             {"content-type": "application/x-www-form-urlencoded"})
@@ -90,11 +90,11 @@ class BaseSDKService(object):
         params = {"id": id}
         attributes = payload
 
-        # if apimapopts.get(action).get("has_authorization") is True:
-        #     headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
-        #                                                                  {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
+        headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
+                                                                     {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
 
-        headers.update({"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
+        headers.update(
+            {"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
 
         if apimapopts.get(action).get("has_signature") is True:
             headers.update({"x-signature": security_wrapper.sucurity_wrapper.get_wrapper().process_hmac_signature(
@@ -111,11 +111,11 @@ class BaseSDKService(object):
         headers = constant_helper.ConstantHelper.get_setting_constant().API_BASE_HEADER
         params = {"id": id} if id is not None else dict()
 
-        # if apimapopts.get(action).get("has_authorization") is True:
-        #     headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
-        #                                                                  {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
+        headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
+                                                                     {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
 
-        headers.update({"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
+        headers.update(
+            {"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
 
         return request_wrapper.request_wrapper.get_wrapper().process_axios_delete(
             url=url, headers=headers, params=params)
@@ -128,11 +128,11 @@ class BaseSDKService(object):
         headers = constant_helper.ConstantHelper.get_setting_constant().API_BASE_HEADER
         params = {**filter, **paging}
 
-        # if apimapopts.get(action).get("has_authorization") is True:
-        #     headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
-        #                                                                  {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
+        headers.update({"authorization": "Basic " + base64.b64encode("%(name)s:%(pass)s".encode("utf-8") %
+                                                                     {"name": request_wrapper.request_wrapper.get_wrapper().key, "pass": request_wrapper.request_wrapper.get_wrapper().secret})})
 
-        headers.update({"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
+        headers.update(
+            {"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
 
         return request_wrapper.request_wrapper.get_wrapper().process_axios_get(
             url=url, headers=headers, params=params)
