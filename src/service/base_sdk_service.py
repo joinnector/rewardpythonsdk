@@ -1,5 +1,6 @@
 import base64
 import uuid
+import json
 
 import helper.constant_helper as constant_helper
 import helper.collection_helper as collection_helper
@@ -32,10 +33,6 @@ class BaseSDKService(object):
 
         headers.update(
             {"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
-
-        if apimapopts.get(action).get("has_signature") is True:
-            headers.update({"x-signature": security_wrapper.sucurity_wrapper.get_wrapper().process_hmac_signature(
-                value=collection_helper.CollectioHelper.process_serialize_data(attributes), password=request_wrapper.request_wrapper.get_wrapper().secret)})
 
         return request_wrapper.request_wrapper.get_wrapper().process_axios_post(
             url=url, headers=headers, params=params, data=attributes)
@@ -99,10 +96,6 @@ class BaseSDKService(object):
 
         headers.update(
             {"x-apikey": request_wrapper.request_wrapper.get_wrapper().key})
-
-        if apimapopts.get(action).get("has_signature") is True:
-            headers.update({"x-signature": security_wrapper.sucurity_wrapper.get_wrapper().process_hmac_signature(
-                value=collection_helper.CollectioHelper.process_serialize_data(attributes), password=request_wrapper.request_wrapper.get_wrapper().secret)})
 
         return request_wrapper.request_wrapper.get_wrapper().process_axios_put(
             url=url, headers=headers, params={}, data=attributes)
