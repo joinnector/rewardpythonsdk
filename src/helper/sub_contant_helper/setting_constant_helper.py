@@ -12,7 +12,6 @@ API_MAP = {
     "coupon": {
         "create": {"endpoint": "/coupons", "prefix": "/api/v2/merchant",  "has_signature": True},
         "get": {"endpoint": "/coupons/{id}", "prefix": "/api/v2/merchant", },
-        "save": {"endpoint": "/coupons/{id}", "prefix": "/api/v2/merchant",  "has_signature": True},
         "fetch": {"endpoint": "/coupons", "prefix": "/api/v2/merchant", }
     },
     "currency": {
@@ -28,7 +27,6 @@ API_MAP = {
         "create": {"endpoint": "/leads", "prefix": "/api/v2/merchant",  "has_signature": True},
         "get": {"endpoint": "/leads/{id}", "prefix": "/api/v2/merchant", },
         "save": {"endpoint": "/leads/{id}", "prefix": "/api/v2/merchant",  "has_signature": True},
-        "fetch": {"endpoint": "/leads", "prefix": "/api/v2/merchant", }
     },
     "notification": {
         "get": {"endpoint": "/notifications/{id}", "prefix": "/api/v2/merchant", },
@@ -61,13 +59,11 @@ API_MAP = {
     "wallet": {
         "create": {"endpoint": "/wallets", "prefix": "/api/v2/merchant",  "has_signature": True},
         "get": {"endpoint": "/wallets/{id}", "prefix": "/api/v2/merchant", },
-        "save": {"endpoint": "/wallets/{id}", "prefix": "/api/v2/merchant",  "has_signature": True},
         "fetch": {"endpoint": "/wallets", "prefix": "/api/v2/merchant", }
     },
     "wallettransaction": {
         "create": {"endpoint": "/wallettransactions", "prefix": "/api/v2/merchant",  "has_signature": True},
         "get": {"endpoint": "/wallettransactions/{id}", "prefix": "/api/v2/merchant", },
-        "save": {"endpoint": "/wallettransactions/{id}", "prefix": "/api/v2/merchant",  "has_signature": True},
         "fetch": {"endpoint": "/wallettransactions", "prefix": "/api/v2/merchant", }
     }
 }
