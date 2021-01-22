@@ -8,4 +8,4 @@ Python 3.5
 - `pip install joinnector_pysdk` 
 
 ## Doumentation
-Please refer `start.nector.io`
+Please refer https://start.nector.io
