@@ -1,4 +1,4 @@
-import client.security_client as security_client
+import src.client.security_client as security_client
 
 class SecurityWrapper(object):
 	'''

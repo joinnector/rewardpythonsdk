@@ -1,4 +1,4 @@
-import client.logging_client as logging_client
+import src.client.logging_client as logging_client
 
 class LoggingWrapper(object):
 	'''

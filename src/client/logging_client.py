@@ -1,6 +1,6 @@
 import logging
 
-import helper.constant_helper as constant_helper
+import src.helper.constant_helper as constant_helper
 
 
 class LoggingClient(object):

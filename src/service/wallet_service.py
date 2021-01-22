@@ -1,4 +1,4 @@
-import service.base_sdk_service as base_sdk_service
+import src.service.base_sdk_service as base_sdk_service
 
 
 class WalletService(base_sdk_service.BaseSDKService):

@@ -2,11 +2,11 @@ import base64
 import uuid
 import json
 
-import helper.constant_helper as constant_helper
-import helper.collection_helper as collection_helper
+import src.helper.constant_helper as constant_helper
+import src.helper.collection_helper as collection_helper
 
-import wrapper.request_wrapper as request_wrapper
-import wrapper.security_wrapper as security_wrapper
+import src.wrapper.request_wrapper as request_wrapper
+import src.wrapper.security_wrapper as security_wrapper
 
 
 class BaseSDKService(object):

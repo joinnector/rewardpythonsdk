@@ -1,4 +1,4 @@
-import client.request_client as request_client
+import src.client.request_client as request_client
 
 class RequestWrapper(object):
 	'''
