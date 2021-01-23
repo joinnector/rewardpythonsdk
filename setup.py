@@ -11,7 +11,7 @@ setup(
     author_email='ayush@nector.io',      # Type in your E-Mail
     url='https://github.com/joinnector/rewardpythonsdk',
     # I explain this later on
-    download_url='https://github.com/joinnector/rewardpythonsdk/archive/0.1.tar.gz',
+    download_url='https://github.com/joinnector/rewardpythonsdk/archive/0.2.tar.gz',
     # Keywords that define your package best
     keywords=['nector', 'reward', 'loyalty', 'coins', 'wallets', 'deals'],
     install_requires=[            # I get to this in a second
