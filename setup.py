@@ -1,17 +1,22 @@
-from distutils.core import setup
+from setuptools import setup, find_packages
+
+with open('README.md') as f:
+    README = f.read()
+
 setup(
     name='joinnector',         # How you named your package folder (MyLib)
-    packages=['joinnector'],   # Chose the same as "name"
-    version='0.3',      # Start with a small number and increase it with every change you make
+    packages=find_packages(),
+    version='0.4',      # Start with a small number and increase it with every change you make
     # Chose a license from here: https://help.github.com/articles/licensing-a-repository
     license='MIT',
     # Give a short description about your library
     description='Nector python SDK (nector.io is a B2B SaaS loyalty platform that allows the business to target a wider audience and increase customer engagement by rewarding them.)',
+    long_description=README,
     author='Ayush Shukla',                   # Type in your name
     author_email='ayush@nector.io',      # Type in your E-Mail
     url='https://github.com/joinnector/rewardpythonsdk',
     # I explain this later on
-    download_url='https://github.com/joinnector/rewardpythonsdk/archive/0.3.tar.gz',
+    download_url='https://github.com/joinnector/rewardpythonsdk/archive/0.4.tar.gz',
     # Keywords that define your package best
     keywords=['nector', 'reward', 'loyalty', 'coins', 'wallets', 'deals'],
     install_requires=[            # I get to this in a second
