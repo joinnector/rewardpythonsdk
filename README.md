@@ -9,3 +9,6 @@ Python 3
 
 ## Doumentation
 Please refer https://docs.nector.io
+
+## Pip upload
+https://medium.com/@joel.barmettler/how-to-upload-your-python-package-to-pypi-65edc5fe9c56

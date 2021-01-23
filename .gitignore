@@ -1,5 +1,6 @@
 # folder
 log/
+dist/
 env/
 __pycache__
 *.pyc
