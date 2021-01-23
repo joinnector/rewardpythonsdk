@@ -1,1 +1,1 @@
-from joinnector import app
+from joinnector.initializer import app

@@ -1,4 +1,5 @@
 # client
+
 from joinnector.wrapper.security_wrapper import sucurity_wrapper
 from joinnector.wrapper.logging_wrapper import logging_wrapper
 from joinnector.wrapper.request_wrapper import request_wrapper
@@ -18,7 +19,7 @@ from joinnector.service.wallet_service import wallet_service
 from joinnector.service.wallettransaction_service import wallettransaction_service
 
 
-class NectorSDK(object):
+class SDK(object):
     def __init__(self, key, secret, mode="prod"):
         self.init_wrappers(key=key, secret=secret, mode=mode)
 
