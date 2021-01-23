@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
     name='joinnector',         # How you named your package folder (MyLib)
     packages=['joinnector'],   # Chose the same as "name"
-    version='0.2',      # Start with a small number and increase it with every change you make
+    version='0.3',      # Start with a small number and increase it with every change you make
     # Chose a license from here: https://help.github.com/articles/licensing-a-repository
     license='MIT',
     # Give a short description about your library
@@ -11,7 +11,7 @@ setup(
     author_email='ayush@nector.io',      # Type in your E-Mail
     url='https://github.com/joinnector/rewardpythonsdk',
     # I explain this later on
-    download_url='https://github.com/joinnector/rewardpythonsdk/archive/0.2.tar.gz',
+    download_url='https://github.com/joinnector/rewardpythonsdk/archive/0.3.tar.gz',
     # Keywords that define your package best
     keywords=['nector', 'reward', 'loyalty', 'coins', 'wallets', 'deals'],
     install_requires=[            # I get to this in a second
