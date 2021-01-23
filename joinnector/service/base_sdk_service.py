@@ -17,9 +17,11 @@ class BaseSDKService(object):
     def create(self, payload, action="create"):
         apimapopts = ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
-        base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper().mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
+        base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper(
+        ).mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
 
-        url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="")
+        url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(
+            action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="")
         headers = ConstantHelper.get_setting_constant().API_BASE_HEADER
         params = {}
         attributes = payload
@@ -37,10 +39,12 @@ class BaseSDKService(object):
 
     def get(self, by_id, action="get"):
         apimapopts = ConstantHelper.get_setting_constant().API_MAP.get(self.name)
-        
-        base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper().mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
 
-        url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", by_id)
+        base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper(
+        ).mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
+
+        url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(action).get(
+            "prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", by_id)
         headers = ConstantHelper.get_setting_constant().API_BASE_HEADER
 
         token = "%(name)s:%(pass)s" % {
@@ -57,9 +61,11 @@ class BaseSDKService(object):
     def get_by(self, by_key, by_value, swap_id=None, action="get"):
         apimapopts = ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
-        base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper().mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
+        base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper(
+        ).mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
 
-        url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", str(uuid.uuid4()))
+        url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(action).get(
+            "prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", str(uuid.uuid4()))
         headers = ConstantHelper.get_setting_constant().API_BASE_HEADER
         params = {}
 
@@ -84,9 +90,11 @@ class BaseSDKService(object):
     def save(self, by_id, payload, action="save"):
         apimapopts = ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
-        base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper().mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
+        base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper(
+        ).mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
 
-        url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", by_id)
+        url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(action).get(
+            "prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", by_id)
         headers = ConstantHelper.get_setting_constant().API_BASE_HEADER
         attributes = payload
 
@@ -104,9 +112,11 @@ class BaseSDKService(object):
     def delete(self, by_id, action="get"):
         apimapopts = ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
-        base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper().mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
+        base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper(
+        ).mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
 
-        url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", by_id)
+        url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(action).get(
+            "prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", by_id)
         headers = ConstantHelper.get_setting_constant().API_BASE_HEADER
 
         token = "%(name)s:%(pass)s" % {
@@ -124,9 +134,11 @@ class BaseSDKService(object):
 
         apimapopts = ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
-        base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper().mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
+        base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper(
+        ).mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
 
-        url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="")
+        url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(
+            action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="")
         headers = ConstantHelper.get_setting_constant().API_BASE_HEADER
         params = {**by_filter, **paging}
 
