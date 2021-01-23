@@ -5,7 +5,7 @@ nector.io is a B2B SaaS loyalty platform that allows the business to target a wi
 Python 3.5
 
 ## Installation
-- `pip install joinnector_pysdk` 
+- `pip install joinnector` 
 
 ## Doumentation
 Please refer https://docs.nector.io

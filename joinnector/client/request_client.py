@@ -1,8 +1,11 @@
-import requests
-import urllib.parse
-import json
+# pylint: disable=no-self-use
+# pylint: disable=dangerous-default-value
 
-import src.helper.constant_helper as constant_helper
+import json
+import urllib.parse
+import requests
+
+from joinnector.helper.constant_helper import ConstantHelper
 
 
 class RequestClient(object):
@@ -11,13 +14,17 @@ class RequestClient(object):
     secret - api secret
     '''
 
-    def __init__(self, key, secret):
+    def __init__(self, key, secret, mode):
         self.key = key
         self.secret = secret
+        self.mode = mode
 
-    def process_axios_get(self, url, headers, params=dict()):
-        headers = {
-            **headers,  **constant_helper.ConstantHelper.get_setting_constant().API_BASE_HEADER}
+    def change_mode(self):
+        self.mode="prod"
+
+    def process_axios_get(self, url, headers, params={}):
+        headers = {**headers,  **
+                   ConstantHelper.get_setting_constant().API_BASE_HEADER}
 
         if headers["content-type"] is "application/x-www-form-urlencoded":
             headers.update(
@@ -27,9 +34,9 @@ class RequestClient(object):
 
         return requests.get(url, headers=headers, params=params)
 
-    def process_axios_put(self, url, headers, params=dict(), data=dict()):
-        headers = {
-            **headers,  **constant_helper.ConstantHelper.get_setting_constant().API_BASE_HEADER}
+    def process_axios_put(self, url, headers, params={}, data={}):
+        headers = {**headers,  **
+                   ConstantHelper.get_setting_constant().API_BASE_HEADER}
 
         if headers["content-type"] is "application/x-www-form-urlencoded":
             headers.update(
@@ -39,9 +46,9 @@ class RequestClient(object):
 
         return requests.put(url, headers=headers, params=params, data=json.dumps(data))
 
-    def process_axios_delete(self, url, headers, params=dict()):
-        headers = {
-            **headers,  **constant_helper.ConstantHelper.get_setting_constant().API_BASE_HEADER}
+    def process_axios_delete(self, url, headers, params={}):
+        headers = {**headers,  **
+                   ConstantHelper.get_setting_constant().API_BASE_HEADER}
 
         if headers["content-type"] is "application/x-www-form-urlencoded":
             headers.update(
@@ -51,9 +58,9 @@ class RequestClient(object):
 
         return requests.delete(url, headers=headers, params=params)
 
-    def process_axios_post(self, url, headers, params=dict(), data=dict()):
-        headers = {
-            **headers,  **constant_helper.ConstantHelper.get_setting_constant().API_BASE_HEADER}
+    def process_axios_post(self, url, headers, params={}, data={}):
+        headers = {**headers,  **
+                   ConstantHelper.get_setting_constant().API_BASE_HEADER}
 
         if headers["content-type"] is "application/x-www-form-urlencoded":
             headers.update(

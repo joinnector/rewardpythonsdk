@@ -1,7 +1,9 @@
-import src.service.base_sdk_service as base_sdk_service
+# pylint: disable=useless-super-delegation
+
+from joinnector.service.base_sdk_service import BaseSDKService
 
 
-class LeadService(base_sdk_service.BaseSDKService):
+class LeadService(BaseSDKService):
     def __init__(self, name):
         super().__init__(name)
 

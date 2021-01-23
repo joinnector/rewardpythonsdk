@@ -1,6 +1,7 @@
 SERVICE_NAME = "nectorsdk"
 
-API_BASE_URL = "https://platform.nector.io"
+API_PROD_BASE_URL = "https://platform.nector.io"
+API_DEV_BASE_URL = "https://devplatform.nector.io"
 
 API_BASE_HEADER = {
     "accept": "application/json",
