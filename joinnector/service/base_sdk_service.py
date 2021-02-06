@@ -22,7 +22,7 @@ class BaseSDKService(object):
 
         url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(
             action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="")
-        headers = ConstantHelper.get_setting_constant().API_BASE_HEADER
+        headers = { **ConstantHelper.get_setting_constant().API_BASE_HEADER}
         params = {}
         attributes = payload
 
@@ -45,7 +45,7 @@ class BaseSDKService(object):
 
         url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(action).get(
             "prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", by_id)
-        headers = ConstantHelper.get_setting_constant().API_BASE_HEADER
+        headers = { **ConstantHelper.get_setting_constant().API_BASE_HEADER}
 
         token = "%(name)s:%(pass)s" % {
             "name": request_wrapper.get_wrapper().key, "pass": request_wrapper.get_wrapper().secret}
@@ -66,7 +66,7 @@ class BaseSDKService(object):
 
         url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(action).get(
             "prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", str(uuid.uuid4()))
-        headers = ConstantHelper.get_setting_constant().API_BASE_HEADER
+        headers = { **ConstantHelper.get_setting_constant().API_BASE_HEADER}
         params = {}
 
         params.update({by_key: by_value})
@@ -95,7 +95,7 @@ class BaseSDKService(object):
 
         url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(action).get(
             "prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", by_id)
-        headers = ConstantHelper.get_setting_constant().API_BASE_HEADER
+        headers = { **ConstantHelper.get_setting_constant().API_BASE_HEADER}
         attributes = payload
 
         token = "%(name)s:%(pass)s" % {
@@ -117,7 +117,7 @@ class BaseSDKService(object):
 
         url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(action).get(
             "prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", by_id)
-        headers = ConstantHelper.get_setting_constant().API_BASE_HEADER
+        headers = { **ConstantHelper.get_setting_constant().API_BASE_HEADER}
 
         token = "%(name)s:%(pass)s" % {
             "name": request_wrapper.get_wrapper().key, "pass": request_wrapper.get_wrapper().secret}
@@ -139,7 +139,7 @@ class BaseSDKService(object):
 
         url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(
             action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="")
-        headers = ConstantHelper.get_setting_constant().API_BASE_HEADER
+        headers = { **ConstantHelper.get_setting_constant().API_BASE_HEADER}
         params = {**by_filter, **paging}
 
         token = "%(name)s:%(pass)s" % {
