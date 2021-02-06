@@ -8,7 +8,7 @@ Python 3
 - `pip install joinnector` 
 
 ## Doumentation
-Please refer https://docs.nector.io
+Please refer https://docs.nector.io/merchant-integration/server-backend/python-sdk
 
 ## Pip upload
 https://medium.com/@joel.barmettler/how-to-upload-your-python-package-to-pypi-65edc5fe9c56
