@@ -130,7 +130,7 @@ class BaseSDKService(object):
         return request_wrapper.get_wrapper().process_axios_delete(
             url=url, headers=headers, params={})
 
-    def fetch(self, by_filter={}, paging={"page": 1, "limit": 20}, action="fetch"):
+    def fetch(self, by_filter={}, action="fetch"):
 
         apimapopts = ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
@@ -140,7 +140,7 @@ class BaseSDKService(object):
         url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(
             action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="")
         headers = { **ConstantHelper.get_setting_constant().API_BASE_HEADER}
-        params = {**by_filter, **paging}
+        params = { "page": 1, "limit": 20, **by_filter }
 
         token = "%(name)s:%(pass)s" % {
             "name": request_wrapper.get_wrapper().key, "pass": request_wrapper.get_wrapper().secret}
