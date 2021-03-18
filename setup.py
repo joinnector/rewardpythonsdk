@@ -7,7 +7,7 @@ setup(
     # Chose a license from here: https://help.github.com/articles/licensing-a-repository
     license='MIT',
     # Give a short description about your library
-    description='Nector python SDK (nector.io is a B2B SaaS loyalty platform that allows the business to target a wider audience and increase customer engagement by rewarding them.)',
+    description='Nector python SDK (nector.io is a loyalty and reward APIs platform, that allows businesses to reward deals, offers, wallet points to their customers for various actions.)',
     author='Ayush Shukla',                   # Type in your name
     author_email='ayush@nector.io',      # Type in your E-Mail
     url='https://github.com/joinnector/rewardpythonsdk',
