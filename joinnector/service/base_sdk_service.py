@@ -14,6 +14,19 @@ class BaseSDKService(object):
     def __init__(self, name):
         self.name = name
 
+    def get_infos(self, endpoint):
+        apimapopts = ConstantHelper.get_setting_constant().API_MAP.get(self.name)
+
+        base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper(
+        ).mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
+
+        url = CollectioHelper.process_key_join(value=[base_url, "/api/open", endpoint], separator="")
+        headers = { **ConstantHelper.get_setting_constant().API_BASE_HEADER}
+        params = {}
+
+        return request_wrapper.get_wrapper().process_axios_get(
+            url=url, headers=headers, params=params)
+
     def create(self, payload, action="create"):
         apimapopts = ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
