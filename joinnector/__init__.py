@@ -1,5 +1,5 @@
 # client
-from joinnector.client.delegate_client import delegate_client
+from joinnector.client.delegate_client import DelegateClient
 
 from joinnector.wrapper.security_wrapper import sucurity_wrapper
 from joinnector.wrapper.logging_wrapper import logging_wrapper
@@ -30,7 +30,7 @@ class SDK(object):
 
     @staticmethod
     def get_delegate_client():
-        return delegate_client
+        return DelegateClient
 
     def get_coupon_service(self):
         return coupon_service

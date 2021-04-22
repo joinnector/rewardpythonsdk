@@ -1,7 +1,7 @@
 from flask import request
 
 
-class NectorClient(object):
+class DelegateClient(object):
 	def __init__(self, sdk, not_allowed_controller_method_names=None):
 		self.nector_sdk_instance = nector_sdk_instance
 
