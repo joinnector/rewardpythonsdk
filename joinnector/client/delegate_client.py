@@ -2,7 +2,7 @@ from flask import request
 
 
 class DelegateClient(object):
-	def __init__(self, sdk, not_allowed_controller_method_names=None):
+	def __init__(self, nector_sdk_instance, not_allowed_controller_method_names=None):
 		self.nector_sdk_instance = nector_sdk_instance
 
 		'''
