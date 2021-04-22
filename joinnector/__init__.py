@@ -1,4 +1,5 @@
 # client
+from joinnector.client.delegate_client import delegate_client
 
 from joinnector.wrapper.security_wrapper import sucurity_wrapper
 from joinnector.wrapper.logging_wrapper import logging_wrapper
@@ -26,6 +27,10 @@ class SDK(object):
         sucurity_wrapper.init()
         logging_wrapper.init()
         request_wrapper.init(key=key, secret=secret, mode=mode)
+
+    @staticmethod
+    def get_delegate_client():
+        return delegate_client
 
     def get_coupon_service(self):
         return coupon_service
