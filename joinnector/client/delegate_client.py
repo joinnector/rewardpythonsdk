@@ -1,6 +1,3 @@
-from flask import request
-
-
 class DelegateClient(object):
 	def __init__(self, nector_sdk_instance, not_allowed_controller_method_names=None):
 		self.nector_sdk_instance = nector_sdk_instance
@@ -23,8 +20,7 @@ class DelegateClient(object):
 			body: object<{body_of_that_method}>
 		}
 	'''
-	def delegate_method(self):
-		json_data = request.get_json()
+	def delegate_method(self, json_data):
 		if json_data is None: 
 			raise Exception("Something went wrong, body is required")
 		
