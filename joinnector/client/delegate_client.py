@@ -34,7 +34,7 @@ class DelegateClient(object):
 		body = json_data.get("body", {})
 
 
-		if method is None or method == "delegate_method" or method in not_allowed_controller_method_names or getattr(self, method, None) is None:
+		if method is None or method == "delegate_method" or method in self.not_allowed_controller_method_names or getattr(self, method, None) is None:
 			raise Exception("Something went wrong, please try after sometime")
 
 		return getattr(self, method)(params, query, body)
