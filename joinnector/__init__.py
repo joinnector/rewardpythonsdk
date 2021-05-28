@@ -7,8 +7,11 @@ from joinnector.wrapper.request_wrapper import request_wrapper
 
 # service
 from joinnector.service.coupon_service import coupon_service
+from joinnector.service.voucher_service import voucher_service
 from joinnector.service.currency_service import currency_service
 from joinnector.service.deal_service import deal_service
+from joinnector.service.offer_service import offer_service
+from joinnector.service.store_service import store_service
 from joinnector.service.lead_service import lead_service
 from joinnector.service.notification_service import notification_service
 from joinnector.service.review_service import review_service
@@ -16,8 +19,11 @@ from joinnector.service.setting_service import setting_service
 from joinnector.service.swap_service import swap_service
 from joinnector.service.task_service import task_service
 from joinnector.service.taskactivity_service import taskactivity_service
+from joinnector.service.surprise_service import surprise_service
+from joinnector.service.surpriseactivity_service import surpriseactivity_service
 from joinnector.service.wallet_service import wallet_service
 from joinnector.service.wallettransaction_service import wallettransaction_service
+
 
 class SDK(object):
     def __init__(self, key, secret, mode="prod"):
@@ -35,11 +41,20 @@ class SDK(object):
     def get_coupon_service(self):
         return coupon_service
 
+    def get_voucher_service(self):
+        return voucher_service
+
     def get_currency_service(self):
         return currency_service
 
     def get_deal_service(self):
         return deal_service
+
+    def get_offer_service(self):
+        return offer_service
+
+    def get_store_service(self):
+        return store_service
 
     def get_lead_service(self):
         return lead_service
@@ -61,6 +76,12 @@ class SDK(object):
 
     def get_taskactivity_service(self):
         return taskactivity_service
+
+    def get_surprise_service(self):
+        return surprise_service
+
+    def get_surpriseactivity_service(self):
+        return surpriseactivity_service
 
     def get_wallet_service(self):
         return wallet_service

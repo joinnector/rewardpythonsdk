@@ -15,6 +15,11 @@ API_MAP = {
         "get": {"endpoint": "/coupons/{id}", "prefix": "/api/v2/merchant", },
         "fetch": {"endpoint": "/coupons", "prefix": "/api/v2/merchant", }
     },
+    "voucher": {
+        "create": {"endpoint": "/vouchers", "prefix": "/api/v2/merchant",  "has_signature": True},
+        "get": {"endpoint": "/vouchers/{id}", "prefix": "/api/v2/merchant", },
+        "fetch": {"endpoint": "/vouchers", "prefix": "/api/v2/merchant", }
+    },
     "currency": {
         "get": {"endpoint": "/currencies/{id}", "prefix": "/api/v2/merchant", },
         "fetch": {"endpoint": "/currencies", "prefix": "/api/v2/merchant", }
@@ -23,6 +28,14 @@ API_MAP = {
         "reward": {"endpoint": "/dealrewards", "prefix": "/api/v2/merchant",  "has_signature": True},
         "get": {"endpoint": "/deals/{id}", "prefix": "/api/v2/merchant", },
         "fetch": {"endpoint": "/deals", "prefix": "/api/v2/merchant", }
+    },
+    "offer": {
+        "get": {"endpoint": "/offers/{id}", "prefix": "/api/v2/merchant", },
+        "fetch": {"endpoint": "/offers", "prefix": "/api/v2/merchant", }
+    },
+    "store": {
+        "get": {"endpoint": "/stores/{id}", "prefix": "/api/v2/merchant", },
+        "fetch": {"endpoint": "/stores", "prefix": "/api/v2/merchant", }
     },
     "lead": {
         "create": {"endpoint": "/leads", "prefix": "/api/v2/merchant",  "has_signature": True},
@@ -56,6 +69,15 @@ API_MAP = {
         "create": {"endpoint": "/taskactivities", "prefix": "/api/v2/merchant",  "has_signature": True},
         "get": {"endpoint": "/taskactivities/{id}", "prefix": "/api/v2/merchant", },
         "fetch": {"endpoint": "/taskactivities", "prefix": "/api/v2/merchant", }
+    },
+    "surprise": {
+        "get": {"endpoint": "/surprises/{id}", "prefix": "/api/v2/merchant", },
+        "fetch": {"endpoint": "/surprises", "prefix": "/api/v2/merchant", }
+    },
+    "surpriseactivity": {
+        "create": {"endpoint": "/surpriseactivities", "prefix": "/api/v2/merchant",  "has_signature": True},
+        "get": {"endpoint": "/surpriseactivities/{id}", "prefix": "/api/v2/merchant", },
+        "fetch": {"endpoint": "/surpriseactivities", "prefix": "/api/v2/merchant", }
     },
     "wallet": {
         "create": {"endpoint": "/wallets", "prefix": "/api/v2/merchant",  "has_signature": True},

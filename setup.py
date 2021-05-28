@@ -3,16 +3,16 @@ from setuptools import setup, find_packages
 setup(
     name='joinnector',         # How you named your package folder (MyLib)
     packages=find_packages(),
-    version='5.5',      # Start with a small number and increase it with every change you make
+    version='6.0',      # Start with a small number and increase it with every change you make
     # Chose a license from here: https://help.github.com/articles/licensing-a-repository
     license='MIT',
     # Give a short description about your library
-    description='Nector python SDK (nector.io is a loyalty and reward APIs platform, that allows businesses to reward deals, offers, wallet points to their customers for various actions.)',
+    description='Nector python SDK (We are a plug and play rewards and loyalty system APIs for B2C, D2C and B2B businesses.)',
     author='Tech, Nector',                   # Type in your name
     author_email='tech@nector.io',      # Type in your E-Mail
     url='https://github.com/joinnector/joinnector-python-sdk',
     # I explain this later on
-    download_url='https://github.com/joinnector/joinnector-python-sdk/archive/5.5.tar.gz',
+    download_url='https://github.com/joinnector/joinnector-python-sdk/archive/6.0.tar.gz',
     # Keywords that define your package best
     keywords=['nector', 'reward', 'loyalty', 'coins', 'wallets', 'deals'],
     install_requires=[            # I get to this in a second
