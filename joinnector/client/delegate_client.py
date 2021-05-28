@@ -8,7 +8,7 @@ class DelegateClient(object):
         // It is requested to call the "not_allowed_controller_method_names" only from other backend functions (idealy they should be called while performing business operations) since they cause quota consumption on nector.
         '''
 
-        self.not_allowed_controller_method_names = ["reward_deals", "create_leads", "save_leads", "get_subscriptions", "create_taskactivities",
+        self.not_allowed_controller_method_names = ["reward_deals", "create_vouchers" "create_leads", "save_leads", "get_subscriptions", "create_taskactivities",
                                                     "create_wallets", "create_wallettransactions"] if (not_allowed_controller_method_names is None) else not_allowed_controller_method_names
 
     '''
