@@ -18,7 +18,7 @@ class BaseSDKService(object):
         apimapopts = ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
         base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper(
-        ).mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
+        ).mode == "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
 
         url = CollectioHelper.process_key_join(value=[base_url, "/api/open", endpoint], separator="")
         headers = { **ConstantHelper.get_setting_constant().API_BASE_HEADER}
@@ -31,7 +31,7 @@ class BaseSDKService(object):
         apimapopts = ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
         base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper(
-        ).mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
+        ).mode == "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
 
         url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(
             action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="")
@@ -54,7 +54,7 @@ class BaseSDKService(object):
         apimapopts = ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
         base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper(
-        ).mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
+        ).mode == "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
 
         url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(action).get(
             "prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", by_id)
@@ -75,7 +75,7 @@ class BaseSDKService(object):
         apimapopts = ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
         base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper(
-        ).mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
+        ).mode == "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
 
         url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(action).get(
             "prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", str(uuid.uuid4()))
@@ -104,7 +104,7 @@ class BaseSDKService(object):
         apimapopts = ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
         base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper(
-        ).mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
+        ).mode == "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
 
         url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(action).get(
             "prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", by_id)
@@ -126,7 +126,7 @@ class BaseSDKService(object):
         apimapopts = ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
         base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper(
-        ).mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
+        ).mode == "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
 
         url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(action).get(
             "prefix"), apimapopts.get(action).get("endpoint")], separator="").replace("{id}", by_id)
@@ -148,7 +148,7 @@ class BaseSDKService(object):
         apimapopts = ConstantHelper.get_setting_constant().API_MAP.get(self.name)
 
         base_url = ConstantHelper.get_setting_constant().API_PROD_BASE_URL if request_wrapper.get_wrapper(
-        ).mode is "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
+        ).mode == "prod" else ConstantHelper.get_setting_constant().API_DEV_BASE_URL
 
         url = CollectioHelper.process_key_join(value=[base_url, apimapopts.get(
             action).get("prefix"), apimapopts.get(action).get("endpoint")], separator="")

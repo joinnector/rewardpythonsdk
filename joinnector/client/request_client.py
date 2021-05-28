@@ -26,7 +26,7 @@ class RequestClient(object):
         headers = {**headers,  **
                    ConstantHelper.get_setting_constant().API_BASE_HEADER}
 
-        if headers["content-type"] is "application/x-www-form-urlencoded":
+        if headers["content-type"] == "application/x-www-form-urlencoded":
             headers.update(
                 {"content-type": "application/x-www-form-urlencoded"})
 
@@ -38,7 +38,7 @@ class RequestClient(object):
         headers = {**headers,  **
                    ConstantHelper.get_setting_constant().API_BASE_HEADER}
 
-        if headers["content-type"] is "application/x-www-form-urlencoded":
+        if headers["content-type"] == "application/x-www-form-urlencoded":
             headers.update(
                 {"content-type": "application/x-www-form-urlencoded"})
 
@@ -50,7 +50,7 @@ class RequestClient(object):
         headers = {**headers,  **
                    ConstantHelper.get_setting_constant().API_BASE_HEADER}
 
-        if headers["content-type"] is "application/x-www-form-urlencoded":
+        if headers["content-type"] == "application/x-www-form-urlencoded":
             headers.update(
                 {"content-type": "application/x-www-form-urlencoded"})
 
@@ -62,7 +62,7 @@ class RequestClient(object):
         headers = {**headers,  **
                    ConstantHelper.get_setting_constant().API_BASE_HEADER}
 
-        if headers["content-type"] is "application/x-www-form-urlencoded":
+        if headers["content-type"] == "application/x-www-form-urlencoded":
             headers.update(
                 {"content-type": "application/x-www-form-urlencoded"})
 
