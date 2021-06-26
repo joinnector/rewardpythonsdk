@@ -15,11 +15,6 @@ API_MAP = {
         "get": {"endpoint": "/coupons/{id}", "prefix": "/api/v2/merchant", },
         "fetch": {"endpoint": "/coupons", "prefix": "/api/v2/merchant", }
     },
-    "voucher": {
-        "create": {"endpoint": "/vouchers", "prefix": "/api/v2/merchant",  "has_signature": True},
-        "get": {"endpoint": "/vouchers/{id}", "prefix": "/api/v2/merchant", },
-        "fetch": {"endpoint": "/vouchers", "prefix": "/api/v2/merchant", }
-    },
     "currency": {
         "get": {"endpoint": "/currencies/{id}", "prefix": "/api/v2/merchant", },
         "fetch": {"endpoint": "/currencies", "prefix": "/api/v2/merchant", }
@@ -30,6 +25,7 @@ API_MAP = {
         "fetch": {"endpoint": "/deals", "prefix": "/api/v2/merchant", }
     },
     "offer": {
+        "redeem": {"endpoint": "/offerredeems", "prefix": "/api/v2/merchant",  "has_signature": True},
         "get": {"endpoint": "/offers/{id}", "prefix": "/api/v2/merchant", },
         "fetch": {"endpoint": "/offers", "prefix": "/api/v2/merchant", }
     },

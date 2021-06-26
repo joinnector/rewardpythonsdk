@@ -7,7 +7,6 @@ from joinnector.wrapper.request_wrapper import request_wrapper
 
 # service
 from joinnector.service.coupon_service import coupon_service
-from joinnector.service.voucher_service import voucher_service
 from joinnector.service.currency_service import currency_service
 from joinnector.service.deal_service import deal_service
 from joinnector.service.offer_service import offer_service
@@ -40,9 +39,6 @@ class SDK(object):
 
     def get_coupon_service(self):
         return coupon_service
-
-    def get_voucher_service(self):
-        return voucher_service
 
     def get_currency_service(self):
         return currency_service

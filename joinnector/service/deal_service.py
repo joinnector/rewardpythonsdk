@@ -8,7 +8,7 @@ class DealService(BaseSDKService):
         super().__init__(name)
 
     def reward(self, payload):
-        return super().create(payload)
+        return super().create(payload, "reward")
 
     def get_by_sku(self, sku):
         return super().get_by("sku", sku)

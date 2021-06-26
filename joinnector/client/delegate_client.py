@@ -8,7 +8,7 @@ class DelegateClient(object):
         // It is requested to call the "not_allowed_controller_method_names" only from other backend functions (idealy they should be called while performing business operations) since they cause quota consumption on nector.
         '''
 
-        self.not_allowed_controller_method_names = ["reward_deals", "create_vouchers" "create_leads", "save_leads", "get_subscriptions", "create_taskactivities",
+        self.not_allowed_controller_method_names = ["reward_deals", "redeem_offers" "create_leads", "save_leads", "get_subscriptions", "create_taskactivities",
                                                     "create_wallets", "create_wallettransactions"] if (not_allowed_controller_method_names is None) else not_allowed_controller_method_names
 
     '''
@@ -55,19 +55,6 @@ class DelegateClient(object):
         return self.nector_sdk_instance.get_coupon_service().fetch(query or {})
 
 
-    # Please refer https://apidocs.nector.io/docs/api-docs/api_reference_oas3.yaml/paths/~1vouchers/post for request signature and other information
-    def create_vouchers(self, params, query, body):
-        return self.nector_sdk_instance.get_voucher_service().create(body)
-
-    # Please refer https://apidocs.nector.io/docs/api-docs/api_reference_oas3.yaml/paths/~1vouchers~1%7Bid%7D/get for request signature and other information
-    def get_vouchers(self, params, query, body):
-        return self.nector_sdk_instance.get_voucher_service().get(params.get("id"))
-
-    # Please refer https://apidocs.nector.io/docs/api-docs/api_reference_oas3.yaml/paths/~1vouchers/get for request signature and other information
-    def fetch_vouchers(self, params, query, body):
-        return self.nector_sdk_instance.get_voucher_service().fetch(query or {})
-
-
 
     # Please refer https://apidocs.nector.io/docs/api-docs/api_reference_oas3.yaml/paths/~1currencies~1%7Bid%7D/get for request signature and other information
     def get_currencies(self, params, query, body):
@@ -100,6 +87,9 @@ class DelegateClient(object):
         return self.nector_sdk_instance.get_deal_service().fetch(query or {})
 
 
+    # Please refer https://apidocs.nector.io/docs/api-docs/api_reference_oas3.yaml/paths/~1offerredeems/post for request signature and other information
+    def redeem_offers(self, params, query, body):
+        return self.nector_sdk_instance.get_offer_service().redeem(body)
 
     # Please refer https://apidocs.nector.io/docs/api-docs/api_reference_oas3.yaml/paths/~1offers~1%7Bid%7D/get for request signature and other information
     def get_offers(self, params, query, body):
