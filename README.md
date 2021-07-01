@@ -7,8 +7,8 @@ Python 3
 ## Installation
 - `pip install joinnector` 
 
-## Doumentation
-Please refer https://docs.nector.io/merchant-integration/custom-integration/python-sdk
+# Integration documentation
+Please refer https://docs.nector.io/merchant-integration
 
-## Pip upload
+## Misc
 https://medium.com/@joel.barmettler/how-to-upload-your-python-package-to-pypi-65edc5fe9c56
